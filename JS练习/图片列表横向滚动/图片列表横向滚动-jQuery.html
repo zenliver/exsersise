@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片列表横向滚动-jQuery</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+            overflow: hidden;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .box-inner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .slideImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 894px;
+            height: 128px;
+        }
+        .img-text {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .img-text img {
+            border: 1px solid #ccc;
+        }
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 图片列表横向滚动-jQuery
+        $(function () {
+            function slideImg() {
+                $(".slideImg").animate({left:"-894px"},13000,function () {
+                    $(this).animate({left:"602px"},10);
+                });
+            }
+            slideImg();
+            setInterval(slideImg,13030);
+
+            $(".slideImg").mouseover(function () {
+                $(this).stop();
+            });
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>图片列表横向滚动-jQuery</h1>
+    <div class="box">
+        <div class="box-inner">
+        <div class="slideImg">
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+            <div class="img-text">
+                <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                <a href="#">放松放松放松方式</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="description">
+        使用jQuery实现图片列表横向滚动效果。
+    </div>
+</body>
+</html>

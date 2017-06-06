@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab切换-原生JS机械</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix {
+        clear: both;
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+        }
+        .tab ul {
+            width: 342px;
+            height: 33px;
+            border-bottom: 2px solid #c00;
+        }
+        .tab li {
+            float: left;
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid #aaa;
+            border-bottom: none;
+            margin: 0 5px;
+            padding-bottom: 2px;
+            cursor: pointer;
+        }
+        .tab .current {
+            border-top: 2px solid #c00;
+            border-left: 2px solid #c00;
+            border-right: 2px solid #c00;
+            border-bottom: 3px solid #fff;
+            padding-bottom: 0;
+        }
+        .con {
+            position: relative;
+        }
+        #con-fc, #con-jj, #con-esf {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100px;
+            line-height: 24px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-top: none;
+        }
+        #con-jj, #con-esf {
+            display: none;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+    </style>
+    <script type="text/javascript">
+        // tab切换-原生JS机械
+
+        function showJJ() {
+            var tabJJ=document.getElementById("jj");
+            var tabFc=document.getElementById("fc");
+            var tabEsf=document.getElementById("esf");
+            tabJJ.className="current";
+            tabFc.className="";
+            tabEsf.className="";
+            var divJJ=document.getElementById("con-jj");
+            var divEsf=document.getElementById("con-esf");
+            var divFc=document.getElementById("con-fc");
+            divJJ.style.display="block";
+            divEsf.style.display="none";
+            divFc.style.display="none";
+        }
+
+        function showEsf() {
+            var tabJJ=document.getElementById("jj");
+            var tabFc=document.getElementById("fc");
+            var tabEsf=document.getElementById("esf");
+            var divJJ=document.getElementById("con-jj");
+            var divEsf=document.getElementById("con-esf");
+            var divFc=document.getElementById("con-fc");
+            tabEsf.className="current";
+            tabFc.className="";
+            tabJJ.className="";
+            divEsf.style.display="block";
+            divFc.style.display="none";
+            divJJ.style.display="none";
+        }
+
+        function showFc() {
+            var tabJJ=document.getElementById("jj");
+            var tabFc=document.getElementById("fc");
+            var tabEsf=document.getElementById("esf");
+            var divJJ=document.getElementById("con-jj");
+            var divEsf=document.getElementById("con-esf");
+            var divFc=document.getElementById("con-fc");
+            tabFc.className="current";
+            tabEsf.className="";
+            tabJJ.className="";
+            divFc.style.display="block";
+            divEsf.style.display="none";
+            divJJ.style.display="none";
+        }
+    </script>
+</head>
+<body>
+    <h1>tab切换-原生JS机械</h1>
+    <div class="box">
+        <div class="tab">
+            <ul>
+                <li id="fc" class="current" onmouseover="showFc()">房产</li>
+                <li id="jj" onmouseover="showJJ()">家居</li>
+                <li id="esf" onmouseover="showEsf()">二手房</li>
+            </ul>
+        </div>
+        <div class="con">
+            <div id="con-fc">
+                275万购昌平邻铁三居 总价20万买一居<br/>
+                200万内购五环三居 140万安家东三环<br/>
+                北京首现零首付楼盘 53万购东5环50平<br/>
+                京楼盘直降5000 中信府 公园楼王现房
+            </div>
+            <div id="con-jj">
+                40平出租屋大改造 美少女的混搭小窝<br/>
+                经典清新简欧爱家 90平老房焕发新生<br/>
+                新中式的酷色温情 66平撞色活泼家居<br/>
+                瓷砖就像选好老婆 卫生间烟道的设计
+            </div>
+            <div id="con-esf">
+                通州豪华3居260万 二环稀缺2居250w甩<br/>
+                西3环通透2居290万 130万2居限量抢购<br/>
+                黄城根小学学区仅260万 121平70万抛!<br/>
+                独家别墅280万 苏州桥2居优惠价248万
+            </div>
+        </div>
+
+    </div>
+    <div class="description">
+        使用原生JS实现，缺点是机械，不够智能。
+    </div>
+</body>
+</html>

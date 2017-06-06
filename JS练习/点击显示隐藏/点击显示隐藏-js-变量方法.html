@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击显示隐藏-js</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        button {
+            width: 60px;
+            height: 30px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        // 点击显示隐藏-js
+        window.onload=function () {
+            var hideBtn=document.getElementById("btn");
+            var divText=document.getElementById("text");
+            var status=1;
+            hideBtn.onclick=function () {
+                if(status==1) {
+                    divText.style.display="none";
+                    status=0;
+                }
+                else {
+                    divText.style.display="block";
+                    status=1;
+                }
+
+            }
+        };
+
+
+
+    </script>
+</head>
+<body>
+    <h1>点击显示隐藏-js</h1>
+    <div class="box">
+        <button type="button" name="button" id="btn">点击</button>
+        <div id="text">使用原生js实现点击显示/隐藏效果。</div>
+    </div>
+    <div class="description">
+        使用原生js实现点击显示/隐藏效果。
+    </div>
+</body>
+</html>

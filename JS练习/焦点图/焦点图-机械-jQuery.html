@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>焦点图-机械-jQuery</title>
+    <style media="screen">
+        /*reset*/
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        body {
+            font-family: Microsoft YaHei;
+            font-size: 14px;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .clearfix:before, .clearfix:after {
+            content:"";
+            display:table;
+        }
+        .clearfix:after {
+            clear:both;
+        }
+        .clearfix {
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 1000px;
+            height: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+            overflow: hidden;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .img1, .img2, .img3 {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        .img2, .img3 {
+            display: none;
+        }
+
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 焦点图-机械-jQuery
+        $(function () {
+
+            function slide() {
+                function showImg2() {
+                    $('.img2').show();
+                    $(".img2").siblings().hide();
+                }
+                function showImg3() {
+                    $('.img3').show();
+                    $(".img3").siblings().hide();
+                }
+                function showImg1() {
+                    $('.img1').show();
+                    $(".img1").siblings().hide();
+                }
+                setTimeout(showImg2,2000);
+                setTimeout(showImg3,4000);
+                setTimeout(showImg1,6000);
+            }
+            slide();
+            setInterval(slide,6000);
+
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>焦点图-机械-jQuery</h1>
+    <div class="box">
+        <div class="img1"><img src="images/ad2.jpg" alt=""></div>
+        <div class="img2"><img src="images/ad3.jpg" alt=""></div>
+        <div class="img3"><img src="images/ad4.jpg" alt=""></div>
+    </div>
+    <div class="description">
+        使用jQuery实现焦点图效果。
+    </div>
+</body>
+</html>

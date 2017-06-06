@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出层-jQuery</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+            overflow: hidden;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .box button {
+            width: 100px;
+            height: 30px;
+        }
+        #pop-div {
+            display: none;
+            position: fixed;
+            width: 500px;
+            height: 260px;
+            text-align: center;
+            top: 100px;
+            left: 150px;
+            border: 2px solid #4c8be0;
+            background: #fff;
+        }
+        .pop-div-top {
+            height: 30px;
+            background: #eee;
+        }
+        .pop-div-top button {
+            width: 30px;
+            height: 30px;
+            font-weight: bold;
+            float: right;
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 弹出层-jQuery
+        $(function () {
+            $(".box button").click(function () {
+                $("#pop-div").show();
+            });
+
+            $(".pop-div-top button").click(function () {
+                $("#pop-div").hide();
+            });
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>弹出层-jQuery</h1>
+    <div class="box">
+        <button type="button" name="button">点击弹出层</button>
+        <div id="pop-div">
+            <div class="pop-div-top">
+                <button type="button" name="button">X</button>
+            </div>
+            点击弹出层效果。</div>
+    </div>
+    <div class="description">
+        使用jQuery实现弹出层效果。
+    </div>
+</body>
+</html>

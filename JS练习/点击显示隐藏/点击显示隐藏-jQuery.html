@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击显示隐藏-jQuery</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        button {
+            width: 60px;
+            height: 30px;
+        }
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 点击显示隐藏-jQuery
+        $(function () {
+            $("#btn").click(function () {
+                $("#text").toggle();
+            });
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>点击显示隐藏-jQuery</h1>
+    <div class="box">
+        <button type="button" name="button" id="btn">点击</button>
+        <div id="text">使用jQuery实现点击显示/隐藏效果。</div>
+    </div>
+    <div class="description">
+        使用jQuery实现点击显示/隐藏效果。
+    </div>
+</body>
+</html>

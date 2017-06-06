@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片列表横向滚动-点击-js</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .box-inner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        #go-left {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 20px;
+            height: 128px;
+            cursor: pointer;
+        }
+        #go-right {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            width: 20px;
+            height: 128px;
+            cursor: pointer;
+        }
+        #slideImg {
+            position: absolute;
+            top: 0;
+            left: 8px;
+            width: 894px;
+            height: 128px;
+        }
+        .img-text {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .img-text img {
+            border: 1px solid #ccc;
+        }
+        .img-text {
+            text-align: center;
+        }
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 图片列表横向滚动-点击-js
+        window.onload=function () {
+            var goLeft=document.getElementById("go-left");
+            var goRight=document.getElementById("go-right");
+            var slideImg=document.getElementById("slideImg");
+            slideImg.style.left="8px";
+            goLeft.onclick=function () {
+                slideImg.style.left=String(Number(slideImg.style.left.slice(0,-2))+149)+"px";
+                if(Number(slideImg.style.left.slice(0,-2))>=8) {
+                    slideImg.style.left="8px";
+                }
+
+            }
+            goRight.onclick=function () {
+
+                // setInterval(goRightOne,30);
+                for(var i=0;i<100;i++) {
+                    function goRightOne() {
+                        slideImg.style.left=String(Number(slideImg.style.left.slice(0,-2))-1.49)+"px";
+                        // setTimeout(goRightOne,5);
+                    }
+                    setTimeout(goRightOne,5);
+
+                }
+
+                if(Number(slideImg.style.left.slice(0,-2))<=-290) {
+                    slideImg.style.left="-290px";
+                }
+            }
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>图片列表横向滚动-点击-js</h1>
+    <div class="box">
+        <button type="button" name="button" id="go-left"><<</button>
+        <div class="box-inner">
+            <div id="slideImg">
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">1</a>
+                </div>
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">2</a>
+                </div>
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">3</a>
+                </div>
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">4</a>
+                </div>
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">5</a>
+                </div>
+                <div class="img-text">
+                    <a href="#"><img src="http://p3.music.126.net/-UQK7pWuVkRaBLigCGcOgA==/1383185642663159.jpg?param=137y103" alt=""></a><br/>
+                    <a href="#">6</a>
+                </div>
+            </div>
+        </div>
+        <button type="button" name="button" id="go-right">>></button>
+    </div>
+    <div class="description">
+        使用js实现图片列表横向滚动-点击效果。
+    </div>
+</body>
+</html>

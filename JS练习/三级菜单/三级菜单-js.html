@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三级菜单-js</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        .menu-item {
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #000;
+        }
+        .menu-item ul {
+            background: #000;
+        }
+        .menu-item a:hover {
+            background: #c00;
+            color: #fff;
+        }
+        .menu-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+        .menu-item-lv2 {
+            display: none;
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+        }
+        .menu-item-lv2 ul {
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        .menu-item-lv3 {
+            display: none;
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+        // 三级菜单-js
+
+        window.onload=function () {
+
+            // 显示/隐藏二级菜单
+            var aMenuItem=document.getElementsByClassName("menu-item");
+            for(var i=0;i<aMenuItem.length;i++) {
+                // 鼠标移入显示二级菜单
+                aMenuItem[i].onmouseover=function () {
+                    var aMenuItemLv2=this.getElementsByClassName("menu-item-lv2");
+                    for(var n=0;n<aMenuItemLv2.length;n++) {
+                        aMenuItemLv2[n].style.display="block";
+                    }
+                }
+                // 鼠标移出隐藏二级菜单
+                aMenuItem[i].onmouseout=function () {
+                    var aMenuItemLv2=this.getElementsByClassName("menu-item-lv2");
+                    for(var n=0;n<aMenuItemLv2.length;n++) {
+                        aMenuItemLv2[n].style.display="none";
+                    }
+                }
+            }
+
+            // 显示/隐藏三级菜单
+            var aMenuItemLv2=document.getElementsByClassName("menu-item-lv2");
+            for(var i=0;i<aMenuItemLv2.length;i++) {
+                // 鼠标移入显示三级菜单
+                aMenuItemLv2[i].onmouseover=function () {
+                    var aMenuItemLv3=this.getElementsByClassName("menu-item-lv3");
+                    for(var n=0;n<aMenuItemLv3.length;n++) {
+                        aMenuItemLv3[n].style.display="block";
+                    }
+                }
+                // 鼠标移出隐藏三级菜单
+                aMenuItemLv2[i].onmouseout=function () {
+                    var aMenuItemLv3=this.getElementsByClassName("menu-item-lv3");
+                    for(var n=0;n<aMenuItemLv3.length;n++) {
+                        aMenuItemLv3[n].style.display="none";
+                    }
+                }
+            }
+        };
+
+
+
+    </script>
+</head>
+<body>
+    <h1>三级菜单-js</h1>
+    <div class="box">
+        <div class="menu">
+            <ul class="clearfix">
+                <li class="menu-item"><a href="#">蔬菜</a>
+                    <ul>
+                        <li class="menu-item-lv2"><a href="#">白菜</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">小白菜</a></li>
+                                <li class="menu-item-lv3"><a href="#">大白菜</a></li>
+                                <li class="menu-item-lv3"><a href="#">夏阳白</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">萝卜</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">白萝卜</a></li>
+                                <li class="menu-item-lv3"><a href="#">红萝卜</a></li>
+                                <li class="menu-item-lv3"><a href="#">绿萝卜</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">黄瓜</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">小黄瓜</a></li>
+                                <li class="menu-item-lv3"><a href="#">绿黄瓜</a></li>
+                                <li class="menu-item-lv3"><a href="#">嫩黄瓜</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">水果</a>
+                    <ul>
+                        <li class="menu-item-lv2"><a href="#">苹果</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">青苹果</a></li>
+                                <li class="menu-item-lv3"><a href="#">红苹果</a></li>
+                                <li class="menu-item-lv3"><a href="#">红富士</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">梨子</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">鸭梨</a></li>
+                                <li class="menu-item-lv3"><a href="#">丰水梨</a></li>
+                                <li class="menu-item-lv3"><a href="#">香梨</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">香蕉</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">本地香蕉</a></li>
+                                <li class="menu-item-lv3"><a href="#">海南香蕉</a></li>
+                                <li class="menu-item-lv3"><a href="#">台湾香蕉</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">坚果</a>
+                    <ul>
+                        <li class="menu-item-lv2"><a href="#">花生</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">红皮花生</a></li>
+                                <li class="menu-item-lv3"><a href="#">本地花生</a></li>
+                                <li class="menu-item-lv3"><a href="#">炒花生</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">核桃</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">本地核桃</a></li>
+                                <li class="menu-item-lv3"><a href="#">云南核桃</a></li>
+                                <li class="menu-item-lv3"><a href="#">新疆核桃</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">腰果</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">炒腰果</a></li>
+                                <li class="menu-item-lv3"><a href="#">国产腰果</a></li>
+                                <li class="menu-item-lv3"><a href="#">越南腰果</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">主食</a>
+                    <ul>
+                        <li class="menu-item-lv2"><a href="#">大米</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">国产大米</a></li>
+                                <li class="menu-item-lv3"><a href="#">东北大米</a></li>
+                                <li class="menu-item-lv3"><a href="#">泰国香米</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">面粉</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">本地面粉</a></li>
+                                <li class="menu-item-lv3"><a href="#">高筋面粉</a></li>
+                                <li class="menu-item-lv3"><a href="#">中筋面粉</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">玉米</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">北方玉米</a></li>
+                                <li class="menu-item-lv3"><a href="#">进口玉米</a></li>
+                                <li class="menu-item-lv3"><a href="#">美国玉米</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">肉类</a>
+                    <ul>
+                        <li class="menu-item-lv2"><a href="#">鱼类</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">鲑鱼</a></li>
+                                <li class="menu-item-lv3"><a href="#">鲔鱼</a></li>
+                                <li class="menu-item-lv3"><a href="#">鲫鱼</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">白肉</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">鸡肉</a></li>
+                                <li class="menu-item-lv3"><a href="#">鸭肉</a></li>
+                                <li class="menu-item-lv3"><a href="#">鹅肉</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-lv2"><a href="#">红肉</a>
+                            <ul>
+                                <li class="menu-item-lv3"><a href="#">猪肉</a></li>
+                                <li class="menu-item-lv3"><a href="#">牛肉</a></li>
+                                <li class="menu-item-lv3"><a href="#">羊肉</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="description">
+        使用原生js实现三级菜单效果。
+    </div>
+</body>
+</html>

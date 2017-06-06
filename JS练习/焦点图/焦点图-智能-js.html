@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>焦点图-智能-js</title>
+    <style media="screen">
+        /*reset*/
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        body {
+            font-family: Microsoft YaHei;
+            font-size: 14px;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .clearfix:before, .clearfix:after {
+            content:"";
+            display:table;
+        }
+        .clearfix:after {
+            clear:both;
+        }
+        .clearfix {
+            *zoom:1;/*IE/7/6*/
+        }
+
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 1000px;
+            height: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+            overflow: hidden;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .wrap {height:170px;
+              width:490px;
+              margin:60px auto;
+              overflow: hidden;
+              position: relative;}
+        .wrap ul {position:absolute;}
+        .wrap ul li {height:170px;}
+        .wrap ol {position:absolute;
+                 right:5px;
+                 bottom:10px;}
+        .wrap ol li {height:20px; width: 20px;
+                    background:#ccc;
+                    border:solid 1px #666;
+                    margin-left:5px;
+                    color:#000;
+                    float:left;
+                    text-align:center;
+                    cursor:pointer;}
+        .wrap ol .on {background:#E97305;
+                     color:#fff;}
+
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 焦点图-智能-js
+        window.onload=function () {
+            var list=document.getElementById("list").getElementsByTagName("li");
+            var pic=document.getElementById("pic");
+            var index=0;
+            var timer=null;
+
+            // 页面加载后自动轮播
+            timer=setInterval(function () {
+                index++;
+                if (index>=list.length) {
+                    index=0;
+                }
+                for (var i = 0; i < list.length; i++) {
+                    list[i].className="";
+                }
+                list[index].className="on";
+                pic.style.top=0-170*index+"px";
+            },2000);
+
+            // 鼠标滑过数字序号切换到相应的图片
+            // 鼠标滑出后继续切换
+            for (var i = 0; i < list.length; i++) {
+                list[i].setAttribute("index",i);
+
+                list[i].onmouseover=function () {
+                    clearInterval(timer);
+                    index=this.getAttribute("index");
+                    for (var j = 0; j < list.length; j++) {
+                        list[j].className="";
+                    }
+                    this.className="on";
+                    pic.style.top=0-170*index+"px";
+                }
+
+                list[i].onmouseout=function () {
+                    index=this.getAttribute("index");
+                    timer=setInterval(function () {
+                        index++;
+                        if (index>=list.length) {
+                            index=0;
+                        }
+                        for (var i = 0; i < list.length; i++) {
+                            list[i].className="";
+                        }
+                        list[index].className="on";
+                        pic.style.top=0-170*index+"px";
+                    },2000);
+                }
+            }
+
+            // 鼠标滑过图片停止切换
+            pic.onmouseover=function () {
+                clearInterval(timer);
+            }
+
+            // 鼠标滑出继续切换
+            pic.onmouseout=function () {
+                index=(0-this.style.top.slice(0,-2))/170;
+                // console.log(index);
+                timer=setInterval(function () {
+                    index++;
+                    if (index>=list.length) {
+                        index=0;
+                    }
+                    for (var i = 0; i < list.length; i++) {
+                        list[i].className="";
+                    }
+                    list[index].className="on";
+                    pic.style.top=0-170*index+"px";
+                },2000);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1>焦点图-智能-js</h1>
+    <div class="box">
+        <div class="wrap" id='wrap'>
+              <ul id="pic">
+                <li><img src="http://img.mukewang.com/54111cd9000174cd04900170.jpg" alt=""></li>
+                <li><img src="http://img.mukewang.com/54111dac000118af04900170.jpg" alt=""></li>
+                <li><img src="http://img.mukewang.com/54111d9c0001998204900170.jpg" alt=""></li>
+                <li><img src="http://img.mukewang.com/54111d8a0001f41704900170.jpg" alt=""></li>
+                <li><img src="http://img.mukewang.com/54111d7d00018ba604900170.jpg" alt=""></li>
+              </ul>
+              <ol id="list">
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ol>
+        </div>
+    </div>
+    <div class="description">
+        使用js智能实现焦点图效果。
+    </div>
+</body>
+</html>

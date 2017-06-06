@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>返回顶部-jQuery</title>
+    <style media="screen">
+        /*reset*/
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+        body {
+        font-family: Microsoft YaHei;
+        font-size: 14px;
+        }
+        a {
+        text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        h1 {
+            width: 50%;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .box {
+            position: relative;
+            width: 600px;
+            height: 2200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px dashed #aaa;
+            overflow: hidden;
+        }
+        .description {
+            width: 50%;
+            height: 50px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        ::selection {
+            background: #c00;
+            color: #fff;
+        }
+
+        #go-to-top {
+            /*display: none;*/
+            position: fixed;
+            right: 10px;
+            bottom: 200px;
+            width: 40px;
+            height: 40px;
+            background: #f95da8;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        #go-to-btm {
+            position: fixed;
+            right: 10px;
+            bottom: 155px;
+            width: 40px;
+            height: 40px;
+            background: #f95da8;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        #go-to-top:hover, #go-to-btm:hover {
+            background: #2cdcf4;
+        }
+
+    </style>
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 返回顶部-jQuery
+        $(function () {
+            $("#go-to-top").click(function () {
+                window.scrollTo(1300,0);
+            });
+            $("#go-to-btm").click(function () {
+                window.scrollTo(1300,9999);
+            });
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>返回顶部-jQuery</h1>
+    <div class="box">
+
+    </div>
+    <div class="description">
+        使用jQuery实现返回顶部效果。
+    </div>
+    <div id="go-to-top">返回顶部</div>
+    <div id="go-to-btm">返回底部</div>
+</body>
+</html>
